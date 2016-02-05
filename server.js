@@ -11,11 +11,11 @@ app.get('/', function (req, res) {
 
 app.get('/skinz', function (req, res) {
 
-  request('https://bitskins.com/api/v1/get_account_balance/?api_key=' + 'APIKEY' + '&code=' + totp.now(), function (error, response, body) {
+  request('https://bitskins.com/api/v1/get_all_item_prices/?api_key=' + 'api_key' + '&code=' + totp.now(), function (error, response, body) {
     if (!error && response.statusCode == 200) {
-      console.log(body) // Show the HTML for the Google homepage.
+      res.send(body);
     } else {
-      console.log(response);
+      res.send(response);
     }
   });
 });
